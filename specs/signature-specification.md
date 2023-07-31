@@ -54,7 +54,7 @@ Besides the [image manifest property requirements][image-manifest-property-descr
   - **`mediaType`** (*string*): This REQUIRED property contains media type of signature envelope blob. Following values are supported
     - `application/jose+json`
     - `application/cose`
-- **`subject`** (*descriptor*): A REQUIRED artifact descriptor referencing the signed manifest, including, but not limited to image manifest, image index, OCI artifact manifest.
+- **`subject`** (*descriptor*): A REQUIRED artifact descriptor referencing the signed manifest, including, but not limited to image manifest, image index.
 - **`annotations`** (*string-string map*): This REQUIRED property contains metadata for the artifact manifest.
   It is being used to store information about the signature.
   Keys using the `io.cncf.notary` namespace are reserved for use in Notary and MUST NOT be used by other specifications.
@@ -99,7 +99,7 @@ Notary signing payload is a JSON document with media type `application/vnd.cncf.
 - `targetArtifact` : Required property whose value is the descriptor of the target artifact manifest that is being signed. Only [OCI descriptor][oci-descriptor] is supported.
   - Descriptor MUST contain `mediaType`, `digest`, `size` fields.
   - Descriptor MAY contain `annotations` and if present it MUST follow the [annotation rules][annotation-rules]. Notary uses annotations for storing both Notary specific and user defined metadata. The prefix `io.cncf.notary` in annotation keys is reserved for use in Notary and MUST NOT be used outside this specification.
-  - Descriptor MAY contain `artifactType` field for artifact manifests, or the `config.mediaType` for `oci.image` based manifests.
+  - Descriptor MAY contain `artifactType` field for artifact manifests, or the `config.mediaType` for OCI image manifests.
 
 #### Examples
 
